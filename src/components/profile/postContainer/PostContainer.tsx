@@ -17,10 +17,10 @@ export const PostContainer: FC<Props> = (props) => {
             <button>add post</button>
          </div>
          <div>
-            <Post />
-            <Post />
-            <Post />
-            <Post />
+            <Post postText="post-1" likeCount={2}/>
+            <Post postText="post-2" likeCount={4}/>
+            <Post postText="post-3" likeCount={10}/>
+            <Post postText="post-4" likeCount={8}/>
          </div>
       </div>
    );
