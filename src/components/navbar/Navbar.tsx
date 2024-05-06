@@ -8,7 +8,7 @@ export const Navbar = () => {
             <a>Profile</a>
          </div>
          <div className={s.item}>
-            <a>Messages</a>
+            <a>Dialogs</a>
          </div>
          <div className={s.item}>
             <a>News</a>

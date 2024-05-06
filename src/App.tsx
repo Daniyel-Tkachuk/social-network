@@ -6,15 +6,16 @@ import {Profile} from "./components/profile/Profile";
 import {Dialogs} from "./components/dialogs/Dialogs";
 
 
+
 export const App = () => {
    return (
-      <div className="app-wrapper">
-         <Header/>
-         <Navbar/>
-         <div className={"app-wrapper_content"}>
-            <Profile/>
-            {/*<Dialogs/>*/}
+         <div className="app-wrapper">
+            <Header/>
+            <Navbar/>
+            <div className={"app-wrapper_content"}>
+               <Profile/>
+               {/*<Dialogs/>*/}
+            </div>
          </div>
-      </div>
    );
 }
