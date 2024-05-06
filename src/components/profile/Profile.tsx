@@ -4,7 +4,7 @@ import {PostContainer} from "./postContainer/PostContainer";
 
 export const Profile = () => {
    return (
-      <div className={s.content}>
+      <div>
          <div>
             <img src="#" alt="banner"/>
          </div>
