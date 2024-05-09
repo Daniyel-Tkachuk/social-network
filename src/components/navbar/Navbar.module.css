@@ -1,10 +1,19 @@
 .nav {
     grid-area: nav;
-    background-color: #eac650;
+    background-color: #e8c854;
+    padding: 10px 20px;
 }
 
 .item {
+    font-size: 20px;
+    margin-bottom:  15px;
+}
+
+a {
+    font-size: 18px;
     color: #fff;
+    font-weight: 700;
+    text-decoration: none;
 }
 
 a.active {
