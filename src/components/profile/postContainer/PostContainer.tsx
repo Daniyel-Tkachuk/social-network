@@ -11,7 +11,7 @@ export const PostContainer: FC<Props> = (props) => {
 
    return (
       <div>
-         My posts
+         <h3>My posts</h3>
          <div>
             <textarea />
             <button>add post</button>
