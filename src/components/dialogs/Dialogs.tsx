@@ -3,12 +3,23 @@ import s from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 
 export const Dialogs = () => {
+
+   const dialogsData = [
+      {id: 1, name: "Daniyel"},
+      {id: 2, name: "Viktoriya"},
+      {id: 3, name: "Zakhar"},
+      {id: 4, name: "Andrey"},
+      {id: 5, name: "Tereza"},
+   ]
+
    return (
       <div className={s.dialogs}>
          <div className={s.dialogsItems}>
             <DialogItem id="1" name="Daniyel"/>
             <DialogItem id="2" name="Viktoriya"/>
             <DialogItem id="3" name="Zakhar"/>
+            <DialogItem id="4" name="Andrey"/>
+            <DialogItem id="4" name="Tereza"/>
          </div>
          <div className={s.messages}>
             <MessageItem message="Hi"/>
