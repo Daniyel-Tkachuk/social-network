@@ -2,6 +2,8 @@ import React, {FC} from 'react';
 import s from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 
+type Props = {}
+
 type DialogType = {
    id: number
    name: string
@@ -9,10 +11,11 @@ type DialogType = {
 
 type MessageType = {
    id: number
-   message: String
+   message: string
 }
 
-export const Dialogs = () => {
+export const Dialogs: FC<Props> = (props) => {
+   const {} = props;
 
    const dialogsData: DialogType[] = [
       {id: 1, name: "Daniyel"},
@@ -26,21 +29,19 @@ export const Dialogs = () => {
       {id: 1, message: "Hi"},
       {id: 2, message: "How is your it-kamasutra?"},
       {id: 3, message: "Yo! How are you ?"},
-   ]
+   ];
+
+   const dialogsJSX: JSX.Element[] = dialogsData.map(el => <DialogItem key={`${el.id}_${el.name}`} id={el.id} name={el.name}/>);
+
+   const messagesJSX: JSX.Element[] = messageData.map(el => <MessageItem key={`${el.id}`} id={el.id} message={el.message}/>)
 
    return (
       <div className={s.dialogs}>
          <div className={s.dialogsItems}>
-            <DialogItem id="1" name="Daniyel"/>
-            <DialogItem id="2" name="Viktoriya"/>
-            <DialogItem id="3" name="Zakhar"/>
-            <DialogItem id="4" name="Andrey"/>
-            <DialogItem id="4" name="Tereza"/>
+            {dialogsJSX}
          </div>
          <div className={s.messages}>
-            <MessageItem message="Hi"/>
-            <MessageItem message="How is your it-kamasutra?"/>
-            <MessageItem message="Yo! How are you ?"/>
+            {messagesJSX}
          </div>
       </div>
    );
@@ -48,7 +49,7 @@ export const Dialogs = () => {
 
 
 type DialogItemProps = {
-   id: string
+   id: number
    name: string
 }
 const DialogItem: FC<DialogItemProps> = (props) => {
@@ -64,6 +65,7 @@ const DialogItem: FC<DialogItemProps> = (props) => {
 }
 
 type MessageItemProps = {
+   id: number
    message: string
 }
 const MessageItem: FC<MessageItemProps> = (props) => {
