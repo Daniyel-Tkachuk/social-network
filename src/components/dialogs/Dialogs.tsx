@@ -10,6 +10,12 @@ export const Dialogs = () => {
       {id: 3, name: "Zakhar"},
       {id: 4, name: "Andrey"},
       {id: 5, name: "Tereza"},
+   ];
+
+   const messageData = [
+      {id: 1, message: "Hi"},
+      {id: 2, message: "How is your it-kamasutra?"},
+      {id: 3, message: "Yo! How are you ?"},
    ]
 
    return (
@@ -24,7 +30,7 @@ export const Dialogs = () => {
          <div className={s.messages}>
             <MessageItem message="Hi"/>
             <MessageItem message="How is your it-kamasutra?"/>
-            <MessageItem message="Yo"/>
+            <MessageItem message="Yo! How are you ?"/>
          </div>
       </div>
    );
