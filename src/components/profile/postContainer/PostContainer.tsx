@@ -6,10 +6,16 @@ type Props = {
 
 }
 
+type postType = {
+   id: number
+   postMessage: string
+   likeCount: number
+}
+
 export const PostContainer: FC<Props> = (props) => {
    const {} = props;
 
-   const postsData = [
+   const postsData: postType[] = [
       {id: 1, postMessage: "post-1", likeCount: 2},
       {id: 2, postMessage: "post-2", likeCount: 4},
       {id: 3, postMessage: "post-3", likeCount: 10},

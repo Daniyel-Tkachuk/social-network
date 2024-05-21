@@ -2,9 +2,19 @@ import React, {FC} from 'react';
 import s from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
 
+type DialogType = {
+   id: number
+   name: string
+};
+
+type MessageType = {
+   id: number
+   message: String
+}
+
 export const Dialogs = () => {
 
-   const dialogsData = [
+   const dialogsData: DialogType[] = [
       {id: 1, name: "Daniyel"},
       {id: 2, name: "Viktoriya"},
       {id: 3, name: "Zakhar"},
@@ -12,7 +22,7 @@ export const Dialogs = () => {
       {id: 5, name: "Tereza"},
    ];
 
-   const messageData = [
+   const messageData: MessageType[] = [
       {id: 1, message: "Hi"},
       {id: 2, message: "How is your it-kamasutra?"},
       {id: 3, message: "Yo! How are you ?"},
