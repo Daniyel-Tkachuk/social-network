@@ -2,15 +2,15 @@ import React, {FC} from 'react';
 import s from './Dialogs.module.css';
 import {DialogItem} from "./dialogItem/DialogItem";
 import {MessageItem} from "./messageItem/MessageItem";
-import {MessagesPageType} from "../../state/state";
+import {DialogsPageType} from "../../state/state";
 
 
 type Props = {
-   messagesPageData: MessagesPageType
+   dialogsPageData: DialogsPageType
 }
 
 export const Dialogs: FC<Props> = (props) => {
-   const {dialogs, messages} = props.messagesPageData;
+   const {dialogs, messages} = props.dialogsPageData;
 
    const dialogsJSX: JSX.Element[] = dialogs
       && dialogs

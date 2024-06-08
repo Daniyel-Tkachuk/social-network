@@ -14,14 +14,14 @@ export type MessagesType = {
 export type ProfilePageType = {
    posts: PostType[]
 }
-export type MessagesPageType = {
+export type DialogsPageType = {
    dialogs: DialogsType[]
    messages: MessagesType[]
 }
 
 export type StateType = {
    profilePageData: ProfilePageType
-   messagesPageData: MessagesPageType
+   dialogsPageData: DialogsPageType
 }
 
 export const state: StateType = {
@@ -33,7 +33,7 @@ export const state: StateType = {
          {id: 4, postMessage: "post-4", likeCount: 8},
       ],
    },
-   messagesPageData: {
+   dialogsPageData: {
       dialogs: [
          {id: 1, name: "Daniyel"},
          {id: 2, name: "Viktoriya"},

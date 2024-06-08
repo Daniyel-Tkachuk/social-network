@@ -12,7 +12,7 @@ type Props = {
 }
 
 export const App: FC<Props> = (props) => {
-   const {profilePageData, messagesPageData} = props.state;
+   const {profilePageData, dialogsPageData} = props.state;
 
    return (
       <div className="app-wrapper">
@@ -23,7 +23,7 @@ export const App: FC<Props> = (props) => {
                <Route path="/" element={<Navigate to="/profile"/>}/>
 
                <Route path="/profile" element={<Profile profilePageData={profilePageData}/>}/>
-               <Route path="/dialogs" element={<Dialogs messagesPageData={messagesPageData}/>}
+               <Route path="/dialogs" element={<Dialogs dialogsPageData={dialogsPageData}/>}
                />
             </Routes>
          </div>
