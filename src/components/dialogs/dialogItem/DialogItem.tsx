@@ -1,20 +1,21 @@
 import React, {FC} from "react";
 import s from './DialogItem.module.css';
 import {NavLink} from "react-router-dom";
-import {DialogType} from "../../../index";
+import {DialogsType} from "../../../state/state";
+
 
 
 type Props = {
-   dialogData: DialogType
+   dialog: DialogsType
 }
 export const DialogItem: FC<Props> = (props) => {
-   const {dialogData} = props;
+   const {dialog} = props;
 
-   const path = `/dialogs/${dialogData.id}`;
+   const path = `/dialogs/${dialog.id}`;
 
    return (
       <div className={s.dialog}>
-         <NavLink to={path}>{dialogData.name}</NavLink>
+         <NavLink to={path}>{dialog.name}</NavLink>
       </div>
    );
 }

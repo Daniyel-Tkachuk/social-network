@@ -1,17 +1,18 @@
 import React, {FC} from "react";
 import s from "./MessageItem.module.css";
-import {MessagesType} from "../../../index";
+import {MessagesType} from "../../../state/state";
+
 
 
 type Props = {
-   messageData: MessagesType
+   message: MessagesType
 }
 export const MessageItem: FC<Props> = (props) => {
-   const {messageData} = props;
+   const {message} = props;
 
    return (
       <div className={s.message}>
-         {messageData.message}
+         {message.message}
       </div>
    );
 }

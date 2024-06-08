@@ -5,16 +5,14 @@ import {Header} from "./components/header/Header";
 import {Navbar} from "./components/navbar/Navbar";
 import {Profile} from "./components/profile/Profile";
 import {Dialogs} from "./components/dialogs/Dialogs";
-import {DialogType, MessagesType, PostType} from "./index";
+import {StateType} from "./state/state";
 
 type Props = {
-   postsData: PostType[]
-   dialogsData: DialogType[]
-   messagesData: MessagesType[]
+   state: StateType
 }
 
 export const App: FC<Props> = (props) => {
-   const {postsData, messagesData, dialogsData} = props;
+   const {profilePageData, messagesPageData} = props.state;
 
    return (
       <div className="app-wrapper">
@@ -24,9 +22,8 @@ export const App: FC<Props> = (props) => {
             <Routes>
                <Route path="/" element={<Navigate to="/profile"/>}/>
 
-               <Route path="/profile" element={<Profile postsData={postsData}/>}/>
-               <Route path="/dialogs" element={<Dialogs dialogsData={dialogsData}
-                                                        messagesData={messagesData}/>}
+               <Route path="/profile" element={<Profile profilePageData={profilePageData}/>}/>
+               <Route path="/dialogs" element={<Dialogs messagesPageData={messagesPageData}/>}
                />
             </Routes>
          </div>

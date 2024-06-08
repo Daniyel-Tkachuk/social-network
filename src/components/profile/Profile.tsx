@@ -2,19 +2,19 @@ import React, {FC} from 'react';
 import s from './Profile.module.css';
 import {PostsContainer} from "./postContainer/PostsContainer";
 import {ProfileInfo} from "./profileInfo/ProfileInfo";
-import {PostType} from "../../index";
+import {ProfilePageType} from "../../state/state";
 
 type Props = {
-   postsData: PostType[]
+   profilePageData: ProfilePageType
 }
 
 export const Profile: FC<Props> = (props) => {
-   const {postsData} = props;
+   const {posts} = props.profilePageData;
 
    return (
       <div className={s.profile}>
          <ProfileInfo/>
-         <PostsContainer postsData={postsData}/>
+         <PostsContainer posts={posts}/>
       </div>
    );
 };
