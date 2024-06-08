@@ -2,39 +2,27 @@ import React, {FC} from 'react';
 import s from './Dialogs.module.css';
 import {DialogItem} from "./dialogItem/DialogItem";
 import {MessageItem} from "./messageItem/MessageItem";
+import {DialogType, MessagesType} from "../../index";
 
-type Props = {}
-
-export type DialogType = {
-   id: number
-   name: string
-};
-
-export type MessageType = {
-   id: number
-   message: string
+type Props = {
+   dialogsData: DialogType[]
+   messagesData: MessagesType[]
 }
 
 export const Dialogs: FC<Props> = (props) => {
-   const {} = props;
+   const {dialogsData, messagesData} = props;
 
-   const dialogsData: DialogType[] = [
-      {id: 1, name: "Daniyel"},
-      {id: 2, name: "Viktoriya"},
-      {id: 3, name: "Zakhar"},
-      {id: 4, name: "Andrey"},
-      {id: 5, name: "Tereza"},
-   ];
+   const dialogsJSX: JSX.Element[] = dialogsData
+      && dialogsData
+         .map(el =>
+            <DialogItem key={`${el.id}_${el.name}`} dialogData={el}/>
+         );
 
-   const messageData: MessageType[] = [
-      {id: 1, message: "Hi"},
-      {id: 2, message: "How is your it-kamasutra?"},
-      {id: 3, message: "Yo! How are you ?"},
-   ];
-
-   const dialogsJSX: JSX.Element[] = dialogsData.map(el => <DialogItem key={`${el.id}_${el.name}`} dialogData={el}/>);
-
-   const messagesJSX: JSX.Element[] = messageData.map(el => <MessageItem key={`${el.id}`} messageData={el}/>)
+   const messagesJSX: JSX.Element[] = messagesData
+      && messagesData
+         .map(el =>
+            <MessageItem key={`${el.id}`} messageData={el}/>
+         );
 
    return (
       <div className={s.dialogs}>

@@ -1,7 +1,8 @@
 import React, {FC} from "react";
 import s from './DialogItem.module.css';
 import {NavLink} from "react-router-dom";
-import {DialogType} from "../Dialogs";
+import {DialogType} from "../../../index";
+
 
 type Props = {
    dialogData: DialogType

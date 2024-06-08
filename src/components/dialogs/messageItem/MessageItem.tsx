@@ -1,9 +1,10 @@
 import React, {FC} from "react";
 import s from "./MessageItem.module.css";
-import {MessageType} from "../Dialogs";
+import {MessagesType} from "../../../index";
+
 
 type Props = {
-   messageData: MessageType
+   messageData: MessagesType
 }
 export const MessageItem: FC<Props> = (props) => {
    const {messageData} = props;
