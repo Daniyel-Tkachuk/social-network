@@ -6,15 +6,19 @@ import {ProfilePageType} from "../../state/state";
 
 type Props = {
    profilePageData: ProfilePageType
+   addPost: (postMessage: string) => void
 }
 
 export const Profile: FC<Props> = (props) => {
-   const {posts} = props.profilePageData;
+   const {
+      profilePageData: {posts},
+      addPost,
+   } = props;
 
    return (
       <div className={s.profile}>
          <ProfileInfo/>
-         <PostsContainer posts={posts}/>
+         <PostsContainer posts={posts} addPost={addPost}/>
       </div>
    );
 };

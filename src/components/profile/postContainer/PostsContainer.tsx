@@ -4,32 +4,33 @@ import {Post} from "./post/Post";
 import {PostType} from "../../../state/state";
 
 
-
 type Props = {
    posts: PostType[]
+   addPost: (postMessage: string) => void
 }
 
 export const PostsContainer: FC<Props> = (props) => {
-   const {posts} = props;
+   const {posts, addPost} = props;
 
    const postsJSX: JSX.Element[] = posts && posts.map(el => <Post
       key={el.id}
-      id={el.id}
-      postMessage={el.postMessage}
-      likeCount={el.likeCount}
+      post={el}
    />);
 
-   const newPostElement = createRef<HTMLTextAreaElement>()
+   const postMessageRef = createRef<HTMLTextAreaElement>();
 
    const addPostHandler = () => {
-
+     if (postMessageRef.current) {
+        addPost(postMessageRef.current.value);
+        postMessageRef.current.value = "";
+     }
    }
 
    return (
       <div>
          <h3>My posts</h3>
          <div>
-            <textarea ref={newPostElement}/>
+            <textarea ref={postMessageRef}/>
             <button onClick={addPostHandler}>add post</button>
          </div>
          <div>
