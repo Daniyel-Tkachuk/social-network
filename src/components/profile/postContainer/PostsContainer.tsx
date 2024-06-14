@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {createRef, FC} from 'react';
 import s from './PostContainer.module.css';
 import {Post} from "./post/Post";
 import {PostType} from "../../../state/state";
@@ -19,12 +19,18 @@ export const PostsContainer: FC<Props> = (props) => {
       likeCount={el.likeCount}
    />);
 
+   const newPostElement = createRef<HTMLTextAreaElement>()
+
+   const addPostHandler = () => {
+
+   }
+
    return (
       <div>
          <h3>My posts</h3>
          <div>
-            <textarea/>
-            <button>add post</button>
+            <textarea ref={newPostElement}/>
+            <button onClick={addPostHandler}>add post</button>
          </div>
          <div>
             {postsJSX}
