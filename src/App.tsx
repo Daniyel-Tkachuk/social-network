@@ -9,13 +9,15 @@ import {StateType} from "./state/state";
 
 type Props = {
    state: StateType
-   addPost: (postMessage: string) => void
+   addPost: () => void
+   changePostText: (text: string) => void
 }
 
 export const App: FC<Props> = (props) => {
    const {
       state: {profilePageData, dialogsPageData},
       addPost,
+      changePostText,
    } = props;
 
    return (
@@ -26,7 +28,10 @@ export const App: FC<Props> = (props) => {
             <Routes>
                <Route path="/" element={<Navigate to="/profile"/>}/>
 
-               <Route path="/profile" element={<Profile profilePageData={profilePageData} addPost={addPost}/>}/>
+               <Route path="/profile" element={<Profile profilePageData={profilePageData}
+                                                        addPost={addPost}
+                                                        changePostText={changePostText}/>
+               }/>
                <Route path="/dialogs" element={<Dialogs dialogsPageData={dialogsPageData}/>}
                />
             </Routes>
