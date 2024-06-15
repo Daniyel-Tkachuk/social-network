@@ -1,4 +1,5 @@
 import {v1} from "uuid";
+import {rerenderEntireThee} from "../common/render";
 
 export type PostType = {
    id: string
@@ -54,4 +55,5 @@ export const state: StateType = {
 
 export const addPost = (postMessage: string) => {
    state.profilePageData.posts.push({id: v1(), postMessage, likeCount: 0});
+   rerenderEntireThee();
 }
