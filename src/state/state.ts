@@ -62,7 +62,7 @@ export const addPost = () => {
       likeCount: 0
    };
    state.profilePageData.posts.push(newPost);
-   state.profilePageData.postText = "";
+   state.profilePageData.postText = " ";
    rerenderEntireThee(state);
 }
 
@@ -70,3 +70,6 @@ export const changePostText = (text: string) => {
    state.profilePageData.postText = text;
    rerenderEntireThee(state);
 }
+
+// @ts-ignore
+window.state = state;
