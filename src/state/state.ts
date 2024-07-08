@@ -1,5 +1,8 @@
 import {v1} from "uuid";
-import {rerenderEntireThee} from "../common/render";
+
+let rerenderEntireThee = () => {
+   console.log("state changed");
+}
 
 export type PostType = {
    id: string
@@ -63,12 +66,16 @@ export const addPost = () => {
    };
    state.profilePageData.posts.push(newPost);
    state.profilePageData.postText = "";
-   rerenderEntireThee(state);
+   rerenderEntireThee();
 }
 
 export const changePostText = (text: string) => {
    state.profilePageData.postText = text;
-   rerenderEntireThee(state);
+   rerenderEntireThee();
+}
+
+export const subscriber = (observer: () => void) => {
+   rerenderEntireThee = observer;
 }
 
 // @ts-ignore
