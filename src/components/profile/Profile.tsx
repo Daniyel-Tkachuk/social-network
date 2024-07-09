@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import s from './Profile.module.css';
 import {PostsContainer} from "./postContainer/PostsContainer";
 import {ProfileInfo} from "./profileInfo/ProfileInfo";
-import {ActionType, ProfilePageType} from "../../state/state";
+import {ActionType, ProfilePageType} from "../../store/state";
 
 type Props = {
    profilePageData: ProfilePageType

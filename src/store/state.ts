@@ -1,4 +1,5 @@
 import {v1} from "uuid";
+import {AddPostAT, ChangePostTextAT} from "./actions";
 
 export type PostType = {
    id: string
@@ -27,10 +28,7 @@ export type StateType = {
    dialogsPageData: DialogsPageType
 }
 
-export type ActionType = {
-   type: string
-   [key: string]: any
-}
+export type ActionType = AddPostAT | ChangePostTextAT;
 
 export const store = {
    _state: {
@@ -89,20 +87,6 @@ export const store = {
             console.log("error");
          }
       }
-   },
-   addPost() {
-      const newPost: PostType = {
-         id: v1(),
-         postMessage: this._state.profilePageData.postText,
-         likeCount: 0
-      };
-      this._state.profilePageData.posts.push(newPost);
-      this._state.profilePageData.postText = "";
-      this._callSubscriber();
-   },
-   changePostText(text: string) {
-      this._state.profilePageData.postText = text;
-      this._callSubscriber();
    },
 }
 

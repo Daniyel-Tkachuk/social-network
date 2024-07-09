@@ -5,7 +5,7 @@ import {Header} from "./components/header/Header";
 import {Navbar} from "./components/navbar/Navbar";
 import {Profile} from "./components/profile/Profile";
 import {Dialogs} from "./components/dialogs/Dialogs";
-import {ActionType, StateType} from "./state/state";
+import {ActionType, StateType} from "./store/state";
 
 type Props = {
    state: StateType

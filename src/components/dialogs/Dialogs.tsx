@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import s from './Dialogs.module.css';
 import {DialogItem} from "./dialogItem/DialogItem";
 import {MessageItem} from "./messageItem/MessageItem";
-import {DialogsPageType} from "../../state/state";
+import {DialogsPageType} from "../../store/state";
 
 
 type Props = {
