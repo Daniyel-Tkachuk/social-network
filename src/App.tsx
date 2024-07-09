@@ -5,19 +5,17 @@ import {Header} from "./components/header/Header";
 import {Navbar} from "./components/navbar/Navbar";
 import {Profile} from "./components/profile/Profile";
 import {Dialogs} from "./components/dialogs/Dialogs";
-import {StateType} from "./state/state";
+import {ActionType, StateType} from "./state/state";
 
 type Props = {
    state: StateType
-   addPost: () => void
-   changePostText: (text: string) => void
+   dispatch: (action: ActionType) => void
 }
 
 export const App: FC<Props> = (props) => {
    const {
       state: {profilePageData, dialogsPageData},
-      addPost,
-      changePostText,
+      dispatch,
    } = props;
 
    return (
@@ -29,8 +27,7 @@ export const App: FC<Props> = (props) => {
                <Route path="/" element={<Navigate to="/profile"/>}/>
 
                <Route path="/profile" element={<Profile profilePageData={profilePageData}
-                                                        addPost={addPost}
-                                                        changePostText={changePostText}/>
+                                                        dispatch={dispatch}/>
                }/>
                <Route path="/dialogs" element={<Dialogs dialogsPageData={dialogsPageData}/>}
                />

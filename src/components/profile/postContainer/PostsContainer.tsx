@@ -1,18 +1,17 @@
 import React, {ChangeEvent, FC, KeyboardEvent} from 'react';
 import s from './PostContainer.module.css';
 import {Post} from "./post/Post";
-import {PostType} from "../../../state/state";
+import {ActionType, PostType} from "../../../state/state";
 
 
 type Props = {
    posts: PostType[]
    postText: string
-   addPost: () => void
-   changePostText: (text: string) => void
+   dispatch: (action: ActionType) => void
 }
 
 export const PostsContainer: FC<Props> = (props) => {
-   const {posts, postText, addPost, changePostText} = props;
+   const {posts, postText, dispatch} = props;
 
    const postsJSX: JSX.Element[] = posts && posts
       .map(el => <Post
@@ -21,7 +20,8 @@ export const PostsContainer: FC<Props> = (props) => {
       />);
 
    const addPostHandler = () => {
-      addPost();
+      const action: ActionType = {type: "ADD-POST"}
+      dispatch(action);
    }
 
    const onEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
@@ -29,7 +29,8 @@ export const PostsContainer: FC<Props> = (props) => {
    }
 
    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-      changePostText(e.currentTarget.value);
+      const action: ActionType = {type: "CHANGE-POST-TEXT", text: e.currentTarget.value};
+      dispatch(action);
    }
 
    return (
