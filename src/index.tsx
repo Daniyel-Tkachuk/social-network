@@ -2,13 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {App} from "./App";
 import {BrowserRouter} from "react-router-dom";
-import {addPost, changePostText, state, subscriber} from "./state/state";
+import {store} from "./state/state";
 
 
 const rerenderEntireThee = () => {
    ReactDOM.render(
       <BrowserRouter>
-         <App state={state} addPost={addPost} changePostText={changePostText}/>
+         <App state={store.getState()}
+              addPost={store.addPost.bind(store)}
+              changePostText={store.changePostText.bind(store)}
+         />
       </BrowserRouter>,
       document.getElementById('root')
    );
@@ -16,4 +19,4 @@ const rerenderEntireThee = () => {
 
 rerenderEntireThee();
 
-subscriber(rerenderEntireThee)
+store.subscribe(rerenderEntireThee);
