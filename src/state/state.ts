@@ -27,6 +27,11 @@ export type StateType = {
    dialogsPageData: DialogsPageType
 }
 
+export type ActionType = {
+   type: string
+   [key: string]: any
+}
+
 export const store = {
    _state: {
       profilePageData: {
@@ -56,6 +61,35 @@ export const store = {
    _callSubscriber() {
       console.log("State changed")
    },
+   getState() {
+      return this._state;
+   },
+   subscribe(observer: () => void){
+      this._callSubscriber = observer;
+   },
+   dispatch(action: ActionType) {
+      switch (action.type) {
+         case "ADD-POST": {
+            const newPost: PostType = {
+               id: v1(),
+               postMessage: this._state.profilePageData.postText,
+               likeCount: 0
+            };
+            this._state.profilePageData.posts.push(newPost);
+            this._state.profilePageData.postText = "";
+            this._callSubscriber();
+            break;
+         }
+         case "CHANGE-POST-TEXT": {
+            this._state.profilePageData.postText = action.text;
+            this._callSubscriber();
+            break
+         }
+         default: {
+            console.log("error");
+         }
+      }
+   },
    addPost() {
       const newPost: PostType = {
          id: v1(),
@@ -70,12 +104,6 @@ export const store = {
       this._state.profilePageData.postText = text;
       this._callSubscriber();
    },
-   getState() {
-     return this._state;
-   },
-   subscribe(observer: () => void){
-      this._callSubscriber = observer;
-   }
 }
 
 // @ts-ignore
