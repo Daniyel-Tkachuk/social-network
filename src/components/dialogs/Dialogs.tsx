@@ -32,6 +32,10 @@ export const Dialogs: FC<Props> = (props) => {
          <div className={s.messages}>
             {messagesJSX}
          </div>
+         <div>
+            <textarea/>
+            <button>send</button>
+         </div>
       </div>
    );
 };
