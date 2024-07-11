@@ -1,5 +1,13 @@
 import {v1} from "uuid";
-import {AddPostAT, ChangePostTextAT} from "./actions";
+import {
+   ADD_POST,
+   AddPostAT,
+   CHANGE_MESSAGE_TEXT,
+   CHANGE_POST_TEXT,
+   ChangeMessageTextAT,
+   ChangePostTextAT
+} from "./actions";
+
 
 export type PostType = {
    id: string
@@ -21,6 +29,7 @@ export type ProfilePageType = {
 export type DialogsPageType = {
    dialogs: DialogsType[]
    messages: MessagesType[]
+   messageText: string
 }
 
 export type StateType = {
@@ -28,7 +37,7 @@ export type StateType = {
    dialogsPageData: DialogsPageType
 }
 
-export type ActionType = AddPostAT | ChangePostTextAT;
+export type ActionType = AddPostAT | ChangePostTextAT | ChangeMessageTextAT;
 
 export const store = {
    _state: {
@@ -53,7 +62,8 @@ export const store = {
             {id: v1(), message: "Hi"},
             {id: v1(), message: "How is your it-kamasutra?"},
             {id: v1(), message: "Yo! How are you ?"},
-         ]
+         ],
+         messageText: "",
       }
    } as StateType,
    _callSubscriber() {
@@ -67,7 +77,7 @@ export const store = {
    },
    dispatch(action: ActionType) {
       switch (action.type) {
-         case "ADD-POST": {
+         case ADD_POST: {
             const newPost: PostType = {
                id: v1(),
                postMessage: this._state.profilePageData.postText,
@@ -78,10 +88,15 @@ export const store = {
             this._callSubscriber();
             break;
          }
-         case "CHANGE-POST-TEXT": {
+         case CHANGE_POST_TEXT: {
             this._state.profilePageData.postText = action.text;
             this._callSubscriber();
             break
+         }
+         case CHANGE_MESSAGE_TEXT: {
+            this._state.dialogsPageData.messageText = action.messageText;
+            this._callSubscriber();
+            break;
          }
          default: {
             console.log("error");

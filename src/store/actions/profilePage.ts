@@ -1,5 +1,5 @@
-const ADD_POST = "ADD-POST";
-const CHANGE_POST_TEXT = "CHANGE-POST-TEXT";
+export const ADD_POST = "ADD-POST";
+export const CHANGE_POST_TEXT = "CHANGE-POST-TEXT";
 
 export const addPostAC = () => {
    return {
