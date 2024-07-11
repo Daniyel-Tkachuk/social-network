@@ -5,7 +5,7 @@ import {
    CHANGE_MESSAGE_TEXT,
    CHANGE_POST_TEXT,
    ChangeMessageTextAT,
-   ChangePostTextAT
+   ChangePostTextAT, SEND_NEW_MESSAGE, SendNewMessageAT
 } from "./actions";
 
 
@@ -37,7 +37,8 @@ export type StateType = {
    dialogsPageData: DialogsPageType
 }
 
-export type ActionType = AddPostAT | ChangePostTextAT | ChangeMessageTextAT;
+export type ActionType = AddPostAT | ChangePostTextAT | ChangeMessageTextAT
+   | SendNewMessageAT;
 
 export const store = {
    _state: {
@@ -95,6 +96,13 @@ export const store = {
          }
          case CHANGE_MESSAGE_TEXT: {
             this._state.dialogsPageData.messageText = action.messageText;
+            this._callSubscriber();
+            break;
+         }
+         case SEND_NEW_MESSAGE: {
+            const newMessageBody = this._state.dialogsPageData.messageText;
+            this._state.dialogsPageData.messageText = "";
+            this._state.dialogsPageData.messages.push({id: v1(), message: newMessageBody});
             this._callSubscriber();
             break;
          }
