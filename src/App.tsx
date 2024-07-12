@@ -29,7 +29,7 @@ export const App: FC<Props> = (props) => {
                <Route path="/profile" element={<Profile profilePageData={profilePageData}
                                                         dispatch={dispatch}/>
                }/>
-               <Route path="/dialogs" element={<Dialogs dialogsPageData={dialogsPageData}/>}
+               <Route path="/dialogs" element={<Dialogs dialogsPageData={dialogsPageData} dispatch={dispatch}/>}
                />
             </Routes>
          </div>

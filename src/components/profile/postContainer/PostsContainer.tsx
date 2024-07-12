@@ -2,7 +2,8 @@ import React, {ChangeEvent, FC, KeyboardEvent} from 'react';
 import s from './PostContainer.module.css';
 import {Post} from "./post/Post";
 import {ActionType, PostType} from "../../../store/state";
-import {addPostAC, changePostTextAC} from "../../../store/actions";
+import {addPostAC, changePostTextAC} from "../../../store/actions/profilePage";
+
 
 
 type Props = {
