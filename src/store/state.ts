@@ -1,12 +1,6 @@
 import {v1} from "uuid";
-import {
-   ADD_POST,
-   AddPostAT,
-   CHANGE_MESSAGE_TEXT,
-   CHANGE_POST_TEXT,
-   ChangeMessageTextAT,
-   ChangePostTextAT, SEND_NEW_MESSAGE, SendNewMessageAT
-} from "./actions";
+import {AddPostAT, ChangePostTextAT, ProfileActionType} from "./actions/profilePage";
+import {ChangeMessageTextAT, DialogsActionType, SendNewMessageAT} from "./actions/dialogsPage";
 
 
 export type PostType = {
@@ -78,7 +72,7 @@ export const store = {
    },
    dispatch(action: ActionType) {
       switch (action.type) {
-         case ADD_POST: {
+         case ProfileActionType.ADD_POST: {
             const newPost: PostType = {
                id: v1(),
                postMessage: this._state.profilePageData.postText,
@@ -89,17 +83,17 @@ export const store = {
             this._callSubscriber();
             break;
          }
-         case CHANGE_POST_TEXT: {
+         case ProfileActionType.CHANGE_POST_TEXT: {
             this._state.profilePageData.postText = action.text;
             this._callSubscriber();
             break
          }
-         case CHANGE_MESSAGE_TEXT: {
+         case DialogsActionType.CHANGE_MESSAGE_TEXT: {
             this._state.dialogsPageData.messageText = action.messageText;
             this._callSubscriber();
             break;
          }
-         case SEND_NEW_MESSAGE: {
+         case DialogsActionType.SEND_NEW_MESSAGE: {
             const newMessageBody = this._state.dialogsPageData.messageText;
             this._state.dialogsPageData.messageText = "";
             this._state.dialogsPageData.messages.push({id: v1(), message: newMessageBody});
