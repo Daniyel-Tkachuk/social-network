@@ -44,7 +44,6 @@ export const PostsContainer: FC<Props> = (props) => {
                       onChange={onChangeHandler}
             />
             <button onClick={addPostHandler}>add post</button>
-            <button onClick={addPostHandler}>add post</button>
          </div>
          <div>
             {postsJSX}
