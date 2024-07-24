@@ -39,12 +39,6 @@ export const PostsContainer: FC<Props> = (props) => {
       <div>
          <h3>My posts</h3>
          <div>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-         </div>
-         <div>
             <textarea value={postText}
                       onKeyPress={onEnter}
                       onChange={onChangeHandler}
