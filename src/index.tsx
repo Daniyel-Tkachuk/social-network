@@ -18,4 +18,4 @@ const rerenderEntireThee = () => {
 
 rerenderEntireThee();
 
-// store.subscribe(rerenderEntireThee);
+store.subscribe(rerenderEntireThee);
