@@ -1,7 +1,5 @@
-export enum DialogsActionType {
-   CHANGE_MESSAGE_TEXT = "CHANGE_MESSAGE_TEXT",
-   SEND_NEW_MESSAGE = "SEND_NEW_MESSAGE"
-}
+import {DialogsActionType} from "../reducers/dialogsReducer";
+
 
 export const changeMessageTextAC = (messageText: string) => {
    return {

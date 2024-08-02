@@ -1,7 +1,5 @@
-export enum ProfileActionType {
-   ADD_POST = "ADD-POST",
-   CHANGE_POST_TEXT = "CHANGE-POST-TEXT"
-}
+import {ProfileActionType} from "../reducers/profileReducer";
+
 
 export const addPostAC = () => {
    return {
