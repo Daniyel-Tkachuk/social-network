@@ -3,7 +3,8 @@ import s from './Dialogs.module.css';
 import {DialogItem} from "./dialogItem/DialogItem";
 import {MessageItem} from "./messageItem/MessageItem";
 import {ActionType, DialogsPageType} from "../../store/state";
-import {changeMessageTextAC, sendNewMessageAC} from "../../store/actions/dialogsPage";
+import {changeMessageTextAC, sendNewMessageAC} from "../../store/actions/dialogsActions";
+
 
 
 type Props = {
