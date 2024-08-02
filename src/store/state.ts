@@ -1,6 +1,8 @@
 import {v1} from "uuid";
-import {AddPostAT, ChangePostTextAT, ProfileActionType} from "./actions/profilePage";
-import {ChangeMessageTextAT, DialogsActionType, SendNewMessageAT} from "./actions/dialogsPage";
+import {AddPostAT, ChangePostTextAT} from "./actions/profileActions";
+import {ChangeMessageTextAT, SendNewMessageAT} from "./actions/dialogsActions";
+import {profileReducer} from "./reducers/profileReducer";
+import {dialogsReducer} from "./reducers/dialogsReducer";
 
 
 export type PostType = {
@@ -71,39 +73,10 @@ export const store = {
       this._callSubscriber = observer;
    },
    dispatch(action: ActionType) {
-      switch (action.type) {
-         case ProfileActionType.ADD_POST: {
-            const newPost: PostType = {
-               id: v1(),
-               postMessage: this._state.profilePageData.postText,
-               likeCount: 0
-            };
-            this._state.profilePageData.posts.push(newPost);
-            this._state.profilePageData.postText = "";
-            this._callSubscriber();
-            break;
-         }
-         case ProfileActionType.CHANGE_POST_TEXT: {
-            this._state.profilePageData.postText = action.text;
-            this._callSubscriber();
-            break
-         }
-         case DialogsActionType.CHANGE_MESSAGE_TEXT: {
-            this._state.dialogsPageData.messageText = action.messageText;
-            this._callSubscriber();
-            break;
-         }
-         case DialogsActionType.SEND_NEW_MESSAGE: {
-            const newMessageBody = this._state.dialogsPageData.messageText;
-            this._state.dialogsPageData.messageText = "";
-            this._state.dialogsPageData.messages.push({id: v1(), message: newMessageBody});
-            this._callSubscriber();
-            break;
-         }
-         default: {
-            console.log("error");
-         }
-      }
+      this._state.profilePageData = profileReducer(this._state.profilePageData, action);
+      this._state.dialogsPageData = dialogsReducer(this._state.dialogsPageData, action);
+
+      this._callSubscriber();
    },
 }
 
