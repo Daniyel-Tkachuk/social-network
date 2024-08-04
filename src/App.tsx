@@ -5,16 +5,17 @@ import {Header} from "./components/header/Header";
 import {Navbar} from "./components/navbar/Navbar";
 import {Profile} from "./components/profile/Profile";
 import {Dialogs} from "./components/dialogs/Dialogs";
-import {ActionType, StateType} from "./store/state";
+import {ActionType} from "./store/_old_store";
+import {AppStateType} from "./store/store";
 
 type Props = {
-   state: StateType
+   state: AppStateType
    dispatch: (action: ActionType) => void
 }
 
 export const App: FC<Props> = (props) => {
    const {
-      state: {profilePageData, dialogsPageData},
+      state: {dialogsData, profileData},
       dispatch,
    } = props;
 
@@ -26,10 +27,10 @@ export const App: FC<Props> = (props) => {
             <Routes>
                <Route path="/" element={<Navigate to="/profile"/>}/>
 
-               <Route path="/profile" element={<Profile profilePageData={profilePageData}
+               <Route path="/profile" element={<Profile profileData={profileData}
                                                         dispatch={dispatch}/>
                }/>
-               <Route path="/dialogs" element={<Dialogs dialogsPageData={dialogsPageData} dispatch={dispatch}/>}
+               <Route path="/dialogs" element={<Dialogs dialogsData={dialogsData} dispatch={dispatch}/>}
                />
             </Routes>
          </div>

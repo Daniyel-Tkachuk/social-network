@@ -2,19 +2,19 @@ import React, {ChangeEvent, FC, KeyboardEvent} from 'react';
 import s from './Dialogs.module.css';
 import {DialogItem} from "./dialogItem/DialogItem";
 import {MessageItem} from "./messageItem/MessageItem";
-import {ActionType, DialogsPageType} from "../../store/state";
+import {ActionType, DialogsPageType} from "../../store/_old_store";
 import {changeMessageTextAC, sendNewMessageAC} from "../../store/actions/dialogsActions";
 
 
 
 type Props = {
-   dialogsPageData: DialogsPageType
+   dialogsData: DialogsPageType
    dispatch: (action: ActionType) => void
 }
 
 export const Dialogs: FC<Props> = (props) => {
    const {
-      dialogsPageData: {dialogs, messages, messageText},
+      dialogsData: {dialogs, messages, messageText},
       dispatch
    } = props;
 

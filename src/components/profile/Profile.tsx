@@ -2,16 +2,16 @@ import React, {FC} from 'react';
 import s from './Profile.module.css';
 import {PostsContainer} from "./postContainer/PostsContainer";
 import {ProfileInfo} from "./profileInfo/ProfileInfo";
-import {ActionType, ProfilePageType} from "../../store/state";
+import {ActionType, ProfilePageType} from "../../store/_old_store";
 
 type Props = {
-   profilePageData: ProfilePageType
+   profileData: ProfilePageType
    dispatch: (action: ActionType) => void
 }
 
 export const Profile: FC<Props> = (props) => {
    const {
-      profilePageData: {posts, postText},
+      profileData: {posts, postText},
       dispatch
    } = props;
 

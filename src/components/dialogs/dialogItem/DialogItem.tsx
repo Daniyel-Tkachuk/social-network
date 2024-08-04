@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import s from './DialogItem.module.css';
 import {NavLink} from "react-router-dom";
-import {DialogsType} from "../../../store/state";
+import {DialogsType} from "../../../store/_old_store";
 
 
 

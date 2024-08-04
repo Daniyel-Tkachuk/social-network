@@ -5,7 +5,23 @@ export enum DialogsActionType {
    SEND_NEW_MESSAGE = "SEND_NEW_MESSAGE"
 }
 
-export const dialogsReducer = (state: any, action: any): any => {
+const initialState: StateType = {
+   dialogs: [
+      {id: v1(), name: "Daniyel"},
+      {id: v1(), name: "Viktoriya"},
+      {id: v1(), name: "Zakhar"},
+      {id: v1(), name: "Andrey"},
+      {id: v1(), name: "Tereza"},
+   ],
+   messages: [
+      {id: v1(), message: "Hi"},
+      {id: v1(), message: "How is your it-kamasutra?"},
+      {id: v1(), message: "Yo! How are you ?"},
+   ],
+   messageText: "",
+}
+
+export const dialogsReducer = (state: StateType = initialState, action: any): StateType => {
    switch (action.type) {
       case DialogsActionType.SEND_NEW_MESSAGE: {
          const newMessageBody = state.messageText;
@@ -21,4 +37,18 @@ export const dialogsReducer = (state: any, action: any): any => {
          return state
       }
    }
+}
+
+type StateType = {
+   dialogs: DialogsType[]
+   messages: MessagesType[]
+   messageText: string
+}
+export type DialogsType = {
+   id: string
+   name: string
+}
+export type MessagesType = {
+   id: string
+   message: string
 }

@@ -4,15 +4,15 @@ import {profileReducer} from "./reducers/profileReducer";
 
 
 const rootReducer = combineReducers({
-   dialogs: dialogsReducer,
-   profile: profileReducer
+   dialogsData: dialogsReducer,
+   profileData: profileReducer
 });
-
 
 
 export const store = createStore(rootReducer);
 
-export type AppStoreType = ReturnType<typeof store.getState>;
+export type AppStateType = ReturnType<typeof store.getState>;
+
 
 // @ts-ignore
 window.store = store;

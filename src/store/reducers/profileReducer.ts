@@ -1,12 +1,16 @@
 import {v1} from "uuid";
-import {PostType} from "../state";
 
-export enum ProfileActionType {
-   ADD_POST = "ADD-POST",
-   CHANGE_POST_TEXT = "CHANGE-POST-TEXT"
+const initialState: StateType = {
+   posts: [
+      {id: v1(), postMessage: "post-1", likeCount: 2},
+      {id: v1(), postMessage: "post-2", likeCount: 4},
+      {id: v1(), postMessage: "post-3", likeCount: 10},
+      {id: v1(), postMessage: "post-4", likeCount: 8},
+   ],
+   postText: "",
 }
 
-export const profileReducer = (state: any, action: any): any => {
+export const profileReducer = (state: StateType = initialState, action: any): StateType => {
    switch (action.type) {
       case ProfileActionType.ADD_POST: {
          const newPost: PostType = {
@@ -26,4 +30,19 @@ export const profileReducer = (state: any, action: any): any => {
          return state
       }
    }
+}
+
+export enum ProfileActionType {
+   ADD_POST = "ADD-POST",
+   CHANGE_POST_TEXT = "CHANGE-POST-TEXT"
+}
+
+export type StateType = {
+   posts: PostType[]
+   postText: string
+}
+export type PostType = {
+   id: string
+   postMessage: string
+   likeCount: number
 }
