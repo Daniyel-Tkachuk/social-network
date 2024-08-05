@@ -11,7 +11,7 @@ type Props = {
    dispatch: (action: ActionType) => void
 }
 
-export const PostsContainer: FC<Props> = (props) => {
+export const MyPosts: FC<Props> = (props) => {
    const {posts, postText, dispatch} = props;
 
    const postsJSX: JSX.Element[] = posts && posts
