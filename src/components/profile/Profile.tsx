@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import s from './Profile.module.css';
-import {MyPosts} from "./postContainer/MyPosts";
+import {CreatePost} from "./CreatePostContainer/CreatePost/CreatePost";
 import {ProfileInfo} from "./profileInfo/ProfileInfo";
 import {ActionType, ProfilePageType} from "../../store/_old_store";
 
@@ -18,7 +18,7 @@ export const Profile: FC<Props> = (props) => {
    return (
       <div className={s.profile}>
          <ProfileInfo/>
-         <MyPosts posts={posts} postText={postText} dispatch={dispatch}/>
+         <CreatePost posts={posts} postText={postText} dispatch={dispatch}/>
       </div>
    );
 };
