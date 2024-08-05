@@ -1,8 +1,8 @@
 import React, {ChangeEvent, FC, KeyboardEvent} from 'react';
-import s from './PostContainer.module.css';
+import s from './CreatePost.module.css';
 import {Post} from "./post/Post";
-import {ActionType, PostType} from "../../../store/_old_store";
-import {addPostAC, changePostTextAC} from "../../../store/actions/profileActions";
+import {ActionType, PostType} from "../../../../store/_old_store";
+import {addPostAC, changePostTextAC} from "../../../../store/actions/profileActions";
 
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
    dispatch: (action: ActionType) => void
 }
 
-export const MyPosts: FC<Props> = (props) => {
+export const CreatePost: FC<Props> = (props) => {
    const {posts, postText, dispatch} = props;
 
    const postsJSX: JSX.Element[] = posts && posts
