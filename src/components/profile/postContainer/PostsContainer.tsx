@@ -5,8 +5,6 @@ import {ActionType, PostType} from "../../../store/_old_store";
 import {addPostAC, changePostTextAC} from "../../../store/actions/profileActions";
 
 
-
-
 type Props = {
    posts: PostType[]
    postText: string
