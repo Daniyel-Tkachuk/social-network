@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {FC} from 'react';
+import {CreatePost} from "./CreatePost/CreatePost";
+import {ActionType, PostType} from "../../../store/_old_store";
 
-export const CreatePostContainer = () => {
+
+type Props = {
+   posts: PostType[]
+   postText: string
+   dispatch: (action: ActionType) => void
+}
+
+export const CreatePostContainer: FC<Props> = ({posts, postText, dispatch}) => {
+
+
    return (
-      <div>
-         
-      </div>
+      <>
+       <CreatePost posts={posts} postText={postText} dispatch={dispatch}/>
+      </>
    );
 };
