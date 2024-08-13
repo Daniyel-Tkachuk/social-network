@@ -1,18 +1,18 @@
 import React, {ChangeEvent, FC, KeyboardEvent} from 'react';
 import s from './CreatePost.module.css';
 import {Post} from "./post/Post";
-import {ActionType, PostType} from "../../../../store/_old_store";
-import {addPostAC, changePostTextAC} from "../../../../store/actions/profileActions";
+import {PostType} from "../../../../store/_old_store";
 
 
 type Props = {
    posts: PostType[]
    postText: string
-   dispatch: (action: ActionType) => void
+   updateNewPostText: (text: string) => void
+   addPost: () => void
 }
 
 export const CreatePost: FC<Props> = (props) => {
-   const {posts, postText, dispatch} = props;
+   const {posts, postText, addPost, updateNewPostText} = props;
 
    const postsJSX: JSX.Element[] = posts && posts
       .map(el => {
@@ -22,16 +22,16 @@ export const CreatePost: FC<Props> = (props) => {
          />
       });
 
-   const addPostHandler = () => {
-      dispatch(addPostAC());
+   const onAddPostHandler = () => {
+      addPost();
    }
 
-   const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-      dispatch(changePostTextAC(e.currentTarget.value));
+   const onPostChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
+      updateNewPostText(e.currentTarget.value);
    }
 
    const onEnter = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-      e.key === "Enter" && addPostHandler();
+      e.key === "Enter" && onAddPostHandler();
    }
 
    return (
@@ -40,9 +40,9 @@ export const CreatePost: FC<Props> = (props) => {
          <div>
             <textarea value={postText}
                       onKeyPress={onEnter}
-                      onChange={onChangeHandler}
+                      onChange={onPostChangeHandler}
             />
-            <button onClick={addPostHandler}>add post</button>
+            <button onClick={onAddPostHandler}>add post</button>
          </div>
          <div>
             {postsJSX}

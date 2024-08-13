@@ -3,6 +3,7 @@ import s from './Profile.module.css';
 import {CreatePost} from "./CreatePostContainer/CreatePost/CreatePost";
 import {ProfileInfo} from "./profileInfo/ProfileInfo";
 import {ActionType, ProfilePageType} from "../../store/_old_store";
+import {CreatePostContainer} from "./CreatePostContainer/CreatePostContainer";
 
 type Props = {
    profileData: ProfilePageType
@@ -18,7 +19,7 @@ export const Profile: FC<Props> = (props) => {
    return (
       <div className={s.profile}>
          <ProfileInfo/>
-         <CreatePost posts={posts} postText={postText} dispatch={dispatch}/>
+         <CreatePostContainer posts={posts} postText={postText} dispatch={dispatch}/>
       </div>
    );
 };
