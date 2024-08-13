@@ -22,11 +22,11 @@ export const CreatePostContainer: FC<Props> = ({posts, postText, dispatch}) => {
 
    return (
       <>
-       <CreatePost posts={posts}
-                   postText={postText}
-                   updateNewPostText={onPostChange}
-                   addPost={addPost}
-       />
+         <CreatePost posts={posts}
+                     postText={postText}
+                     updateNewPostText={onPostChange}
+                     addPost={addPost}
+         />
       </>
    );
 };
