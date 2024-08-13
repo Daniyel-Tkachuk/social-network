@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC} from 'react';
+import React, {FC} from 'react';
 import {Dialogs} from "./dialogs/Dialogs";
 import {ActionType, DialogsPageType} from "../../../store/_old_store";
 import {changeMessageTextAC, sendNewMessageAC} from "../../../store/actions/dialogsActions";

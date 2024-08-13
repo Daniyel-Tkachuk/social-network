@@ -4,9 +4,9 @@ import {Route, Routes, Navigate} from 'react-router-dom';
 import {Header} from "./components/header/Header";
 import {Navbar} from "./components/navbar/Navbar";
 import {Profile} from "./components/profile/Profile";
-import {Dialogs} from "./components/dialogs/dialogsContainer/dialogs/Dialogs";
 import {ActionType} from "./store/_old_store";
 import {AppStateType} from "./store/store";
+import {DialogsContainer} from "./components/dialogs/dialogsContainer/DialogsContainer";
 
 type Props = {
    state: AppStateType
@@ -30,7 +30,7 @@ export const App: FC<Props> = (props) => {
                <Route path="/profile" element={<Profile profileData={profileData}
                                                         dispatch={dispatch}/>
                }/>
-               <Route path="/dialogs" element={<Dialogs dialogsData={dialogsData} dispatch={dispatch}/>}
+               <Route path="/dialogs" element={<DialogsContainer dialogsData={dialogsData} dispatch={dispatch}/>}
                />
             </Routes>
          </div>
