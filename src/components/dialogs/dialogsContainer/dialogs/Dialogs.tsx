@@ -1,21 +1,22 @@
 import React, {ChangeEvent, FC, KeyboardEvent} from 'react';
 import s from './Dialogs.module.css';
+import {DialogsPageType} from "../../../../store/_old_store";
 import {DialogItem} from "./dialogItem/DialogItem";
 import {MessageItem} from "./messageItem/MessageItem";
-import {ActionType, DialogsPageType} from "../../store/_old_store";
-import {changeMessageTextAC, sendNewMessageAC} from "../../store/actions/dialogsActions";
 
 
 
 type Props = {
    dialogsData: DialogsPageType
-   dispatch: (action: ActionType) => void
+   changeMessageText: (text: string) => void
+   sendMessage: () => void
 }
 
 export const Dialogs: FC<Props> = (props) => {
    const {
       dialogsData: {dialogs, messages, messageText},
-      dispatch
+      changeMessageText,
+      sendMessage,
    } = props;
 
    const dialogsJSX: JSX.Element[] = dialogs
@@ -31,11 +32,11 @@ export const Dialogs: FC<Props> = (props) => {
          );
 
    const onSendMessageHandler = () => {
-      dispatch(sendNewMessageAC());
+      sendMessage();
    };
 
    const changeMessageTextHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-      dispatch(changeMessageTextAC(e.currentTarget.value));
+      changeMessageText(e.currentTarget.value);
    };
 
    const onEnterHandler = (e: KeyboardEvent<HTMLTextAreaElement>) => {

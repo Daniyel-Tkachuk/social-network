@@ -4,7 +4,7 @@ import {Route, Routes, Navigate} from 'react-router-dom';
 import {Header} from "./components/header/Header";
 import {Navbar} from "./components/navbar/Navbar";
 import {Profile} from "./components/profile/Profile";
-import {Dialogs} from "./components/dialogs/Dialogs";
+import {Dialogs} from "./components/dialogs/dialogsContainer/dialogs/Dialogs";
 import {ActionType} from "./store/_old_store";
 import {AppStateType} from "./store/store";
 
