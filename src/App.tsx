@@ -32,7 +32,6 @@ export const App: FC<Props> = (props) => {
                }/>
                <Route path="/dialogs" element={<DialogsContainer dialogsData={dialogsData} dispatch={dispatch}/>}
                />
-               <div></div>
             </Routes>
          </div>
       </div>
