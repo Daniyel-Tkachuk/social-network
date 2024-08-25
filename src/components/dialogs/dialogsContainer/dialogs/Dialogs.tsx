@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC, KeyboardEvent} from 'react';
 import s from './Dialogs.module.css';
-import {DialogsPageType} from "../../../../store/_old_store";
+import {DialogsPageType} from "../../../../store/_OOP_store";
 import {DialogItem} from "./dialogItem/DialogItem";
 import {MessageItem} from "./messageItem/MessageItem";
 

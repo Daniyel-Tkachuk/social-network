@@ -3,13 +3,16 @@ import ReactDOM from "react-dom";
 import {App} from "./App";
 import {BrowserRouter} from "react-router-dom";
 import {store} from "./store/store";
+import {StoreContext} from "./context/storeContext";
 
 const rerenderEntireThee = () => {
    ReactDOM.render(
       <BrowserRouter>
-         <App state={store.getState()}
-              dispatch={store.dispatch}
-         />
+         <StoreContext.Provider value={store}>
+            <App state={store.getState()}
+                 dispatch={store.dispatch}
+            />
+         </StoreContext.Provider>
       </BrowserRouter>,
       document.getElementById('root')
    );

@@ -1,6 +1,6 @@
 import React, {FC} from "react";
 import s from "./MessageItem.module.css";
-import {MessagesType} from "../../../../../store/_old_store";
+import {MessagesType} from "../../../../../store/_OOP_store";
 
 
 

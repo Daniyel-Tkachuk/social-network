@@ -1,6 +1,6 @@
 import React, {ChangeEvent, FC} from 'react';
 import {CreatePost} from "./CreatePost/CreatePost";
-import {ActionType, PostType} from "../../../store/_old_store";
+import {ActionType, PostType} from "../../../store/_OOP_store";
 import {addPostAC, changePostTextAC} from "../../../store/actions/profileActions";
 
 

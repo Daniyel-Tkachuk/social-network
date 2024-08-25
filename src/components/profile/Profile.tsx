@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import s from './Profile.module.css';
 import {ProfileInfo} from "./profileInfo/ProfileInfo";
-import {ActionType, ProfilePageType} from "../../store/_old_store";
+import {ActionType, ProfilePageType} from "../../store/_OOP_store";
 import {CreatePostContainer} from "./CreatePostContainer/CreatePostContainer";
 
 type Props = {

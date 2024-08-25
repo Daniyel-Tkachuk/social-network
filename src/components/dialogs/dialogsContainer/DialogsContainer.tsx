@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import {Dialogs} from "./dialogs/Dialogs";
-import {ActionType, DialogsPageType} from "../../../store/_old_store";
+import {ActionType, DialogsPageType} from "../../../store/_OOP_store";
 import {changeMessageTextAC, sendNewMessageAC} from "../../../store/actions/dialogsActions";
 
 type Props = {

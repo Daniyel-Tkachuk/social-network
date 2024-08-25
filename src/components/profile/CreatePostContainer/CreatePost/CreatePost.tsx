@@ -1,7 +1,7 @@
 import React, {ChangeEvent, FC, KeyboardEvent} from 'react';
 import s from './CreatePost.module.css';
 import {Post} from "./post/Post";
-import {PostType} from "../../../../store/_old_store";
+import {PostType} from "../../../../store/_OOP_store";
 
 
 type Props = {
