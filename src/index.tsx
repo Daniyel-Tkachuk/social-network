@@ -9,9 +9,7 @@ const rerenderEntireThee = () => {
    ReactDOM.render(
       <BrowserRouter>
          <StoreContext.Provider value={store}>
-            <App state={store.getState()}
-                 dispatch={store.dispatch}
-            />
+            <App />
          </StoreContext.Provider>
       </BrowserRouter>,
       document.getElementById('root')

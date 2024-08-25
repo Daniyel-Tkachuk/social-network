@@ -9,14 +9,14 @@ import {AppStateType} from "./store/store";
 import {DialogsContainer} from "./components/dialogs/dialogsContainer/DialogsContainer";
 
 type Props = {
-   state: AppStateType
-   dispatch: (action: ActionType) => void
+   // state: AppStateType
+   // dispatch: (action: ActionType) => void
 }
 
 export const App: FC<Props> = (props) => {
    const {
-      state: {dialogsData, profileData},
-      dispatch,
+      // state: {dialogsData, profileData},
+      // dispatch,
    } = props;
 
    return (
@@ -27,10 +27,10 @@ export const App: FC<Props> = (props) => {
             <Routes>
                <Route path="/" element={<Navigate to="/profile"/>}/>
 
-               <Route path="/profile" element={<Profile profileData={profileData}
+               {/*<Route path="/profile" element={<Profile profileData={profileData}
                                                         dispatch={dispatch}/>
-               }/>
-               <Route path="/dialogs" element={<DialogsContainer dialogsData={dialogsData} dispatch={dispatch}/>}
+               }/>*/}
+               <Route path="/dialogs" element={<DialogsContainer />}
                />
             </Routes>
          </div>
