@@ -1,24 +1,17 @@
 import React, {FC} from 'react';
 import s from './Profile.module.css';
 import {ProfileInfo} from "./profileInfo/ProfileInfo";
-import {ActionType, ProfilePageType} from "../../store/_OOP_store";
 import {CreatePostContainer} from "./CreatePostContainer/CreatePostContainer";
 
-type Props = {
-   profileData: ProfilePageType
-   dispatch: (action: ActionType) => void
-}
+type Props = {}
 
 export const Profile: FC<Props> = (props) => {
-   const {
-      profileData: {posts, postText},
-      dispatch
-   } = props;
+   const {} = props;
 
    return (
       <div className={s.profile}>
          <ProfileInfo/>
-         <CreatePostContainer posts={posts} postText={postText} dispatch={dispatch}/>
+         <CreatePostContainer />
       </div>
    );
 };

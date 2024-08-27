@@ -4,20 +4,12 @@ import {Route, Routes, Navigate} from 'react-router-dom';
 import {Header} from "./components/header/Header";
 import {Navbar} from "./components/navbar/Navbar";
 import {Profile} from "./components/profile/Profile";
-import {ActionType} from "./store/_OOP_store";
-import {AppStateType} from "./store/store";
 import {DialogsContainer} from "./components/dialogs/dialogsContainer/DialogsContainer";
 
-type Props = {
-   // state: AppStateType
-   // dispatch: (action: ActionType) => void
-}
+type Props = {}
 
 export const App: FC<Props> = (props) => {
-   const {
-      // state: {dialogsData, profileData},
-      // dispatch,
-   } = props;
+   const {} = props;
 
    return (
       <div className="app-wrapper">
@@ -27,11 +19,9 @@ export const App: FC<Props> = (props) => {
             <Routes>
                <Route path="/" element={<Navigate to="/profile"/>}/>
 
-               {/*<Route path="/profile" element={<Profile profileData={profileData}
-                                                        dispatch={dispatch}/>
-               }/>*/}
-               <Route path="/dialogs" element={<DialogsContainer />}
-               />
+               <Route path="/profile" element={<Profile />
+               }/>
+               <Route path="/dialogs" element={<DialogsContainer/>}/>
             </Routes>
          </div>
       </div>

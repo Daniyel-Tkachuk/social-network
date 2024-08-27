@@ -1,32 +1,37 @@
-import React, {ChangeEvent, FC} from 'react';
+import React, {FC} from 'react';
 import {CreatePost} from "./CreatePost/CreatePost";
-import {ActionType, PostType} from "../../../store/_OOP_store";
 import {addPostAC, changePostTextAC} from "../../../store/actions/profileActions";
+import {StoreContext} from "../../../context/storeContext";
 
 
-type Props = {
-   posts: PostType[]
-   postText: string
-   dispatch: (action: ActionType) => void
-}
+type Props = {}
 
-export const CreatePostContainer: FC<Props> = ({posts, postText, dispatch}) => {
-
-   const addPost = () => {
-      dispatch(addPostAC());
-   }
-
-   const onPostChange = (text: string) => {
-      dispatch(changePostTextAC(text));
-   }
+export const CreatePostContainer: FC<Props> = ({}) => {
 
    return (
       <>
-         <CreatePost posts={posts}
-                     postText={postText}
-                     updateNewPostText={onPostChange}
-                     addPost={addPost}
-         />
+         <StoreContext.Consumer>
+            {
+               (store) => {
+                  const {posts, postText} = store.getState().profileData;
+
+                  const addPost = () => {
+                     store.dispatch(addPostAC());
+                  }
+                  const onPostChange = (text: string) => {
+                     store.dispatch(changePostTextAC(text));
+                  }
+                  return (
+                     <CreatePost posts={posts}
+                                 postText={postText}
+                                 updateNewPostText={onPostChange}
+                                 addPost={addPost}
+                     />
+                  )
+               }
+            }
+         </StoreContext.Consumer>
+
       </>
    );
 };
