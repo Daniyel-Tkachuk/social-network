@@ -21,7 +21,7 @@ export const App: FC<Props> = (props) => {
 
                <Route path="/profile" element={<Profile />
                }/>
-               <Route path="/dialogs" element={<DialogsContainer/>}/>
+               <Route path="/dialogs" element={<DialogsContainer />}/>
             </Routes>
          </div>
       </div>

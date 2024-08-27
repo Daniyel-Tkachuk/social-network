@@ -3,14 +3,14 @@ import ReactDOM from "react-dom";
 import {App} from "./App";
 import {BrowserRouter} from "react-router-dom";
 import {store} from "./store/store";
-import {StoreContext} from "./context/storeContext";
+import {Provider} from "./context/storeContext";
 
 const rerenderEntireThee = () => {
    ReactDOM.render(
       <BrowserRouter>
-         <StoreContext.Provider value={store}>
+         <Provider store={store}>
             <App />
-         </StoreContext.Provider>
+         </Provider>
       </BrowserRouter>,
       document.getElementById('root')
    );
