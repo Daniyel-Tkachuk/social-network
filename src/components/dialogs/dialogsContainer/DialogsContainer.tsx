@@ -3,6 +3,9 @@ import {Dialogs} from "./dialogs/Dialogs";
 import {ActionType, DialogsPageType} from "../../../store/_OOP_store";
 import {changeMessageTextAC, sendNewMessageAC} from "../../../store/actions/dialogsActions";
 import {StoreContext} from "../../../context/storeContext";
+import {connect} from "react-redux";
+import {AppStateType} from "../../../store/store";
+import {Dispatch} from "redux";
 
 type Props = {}
 
@@ -33,3 +36,18 @@ export const DialogsContainer: FC<Props> = (props) => {
       </>
    );
 };
+
+const mapStateToProps = (state: AppStateType) => {
+   return {
+      dialogsData: state.dialogsData
+   }
+};
+
+const mapDispatchToProps = (dispatch: Dispatch) => {
+   return {
+      changeMessageText: () => {},
+      sendMessage: () => {}
+   }
+}
+
+export const TestDialogsContainer = connect()(Dialogs)
