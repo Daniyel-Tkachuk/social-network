@@ -1,18 +1,11 @@
 import React, {ChangeEvent, FC, KeyboardEvent} from 'react';
 import s from './Dialogs.module.css';
-import {DialogsPageType} from "../../../../store/_OOP_store";
 import {DialogItem} from "./dialogItem/DialogItem";
 import {MessageItem} from "./messageItem/MessageItem";
+import {PropsType} from "../DialogsContainer";
 
 
-
-type Props = {
-   dialogsData: DialogsPageType
-   changeMessageText: (text: string) => void
-   sendMessage: () => void
-}
-
-export const Dialogs: FC<Props> = (props) => {
+export const Dialogs: FC<PropsType> = (props) => {
    const {
       dialogsData: {dialogs, messages, messageText},
       changeMessageText,

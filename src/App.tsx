@@ -4,12 +4,13 @@ import {Route, Routes, Navigate} from 'react-router-dom';
 import {Header} from "./components/header/Header";
 import {Navbar} from "./components/navbar/Navbar";
 import {Profile} from "./components/profile/Profile";
-import {DialogsContainer} from "./components/dialogs/dialogsContainer/DialogsContainer";
+import {Container} from "./components/dialogs/dialogsContainer/DialogsContainer";
+
 
 type Props = {}
 
-export const App: FC<Props> = (props) => {
-   const {} = props;
+export const App: FC<Props> = () => {
+
 
    return (
       <div className="app-wrapper">
@@ -21,7 +22,7 @@ export const App: FC<Props> = (props) => {
 
                <Route path="/profile" element={<Profile />
                }/>
-               <Route path="/dialogs" element={<DialogsContainer />}/>
+               <Route path="/dialogs" element={<Container/>}/>
             </Routes>
          </div>
       </div>

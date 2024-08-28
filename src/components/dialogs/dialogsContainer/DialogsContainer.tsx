@@ -1,53 +1,42 @@
-import React, {FC} from 'react';
-import {Dialogs} from "./dialogs/Dialogs";
-import {ActionType, DialogsPageType} from "../../../store/_OOP_store";
 import {changeMessageTextAC, sendNewMessageAC} from "../../../store/actions/dialogsActions";
-import {StoreContext} from "../../../context/storeContext";
-import {connect} from "react-redux";
+
 import {AppStateType} from "../../../store/store";
+import {StateType} from "../../../store/reducers/dialogsReducer";
 import {Dispatch} from "redux";
+import {connect} from "react-redux";
+import {Dialogs} from "./dialogs/Dialogs";
 
-type Props = {}
 
-export const DialogsContainer: FC<Props> = (props) => {
-   const {} = props;
+type MapStateToPropsType = {
+   dialogsData: StateType
+}
 
-   return (
-      <>
-         <StoreContext.Consumer>
-            {
-               (store) => {
-                  const dialogsState = store.getState().dialogsData;
-                  const sendMessage = () => {
-                     store.dispatch(sendNewMessageAC());
-                  };
+type MapDispatchToPropsType = {
+   sendMessage: () => void
+   changeMessageText: (text: string) => void
+}
 
-                  const changeMessageText = (text: string) => {
-                     store.dispatch(changeMessageTextAC(text));
-                  };
-                  return <Dialogs dialogsData={dialogsState}
-                                  changeMessageText={changeMessageText}
-                                  sendMessage={sendMessage}
-                  />
-               }
-            }
-         </StoreContext.Consumer>
-
-      </>
-   );
-};
-
-const mapStateToProps = (state: AppStateType) => {
+const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
    return {
       dialogsData: state.dialogsData
    }
-};
-
-const mapDispatchToProps = (dispatch: Dispatch) => {
+}
+const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
    return {
-      changeMessageText: () => {},
-      sendMessage: () => {}
+     sendMessage: () => {
+        dispatch(sendNewMessageAC())
+     },
+      changeMessageText: (text: string) => {
+        dispatch(changeMessageTextAC(text))
+      }
    }
 }
 
-export const TestDialogsContainer = connect()(Dialogs)
+export type PropsType = MapStateToPropsType & MapDispatchToPropsType;
+
+export const Container = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+
+
+
+
+

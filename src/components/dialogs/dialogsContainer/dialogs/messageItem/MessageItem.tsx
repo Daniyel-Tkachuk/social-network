@@ -1,7 +1,6 @@
 import React, {FC} from "react";
 import s from "./MessageItem.module.css";
-import {MessagesType} from "../../../../../store/_OOP_store";
-
+import {MessagesType} from "../../../../../store/reducers/dialogsReducer";
 
 
 type Props = {

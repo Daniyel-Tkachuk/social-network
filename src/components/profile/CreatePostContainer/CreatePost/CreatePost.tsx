@@ -1,17 +1,9 @@
 import React, {ChangeEvent, FC, KeyboardEvent} from 'react';
-import s from './CreatePost.module.css';
 import {Post} from "./post/Post";
-import {PostType} from "../../../../store/_OOP_store";
+import {PropsType} from "../CreatePostContainer";
 
 
-type Props = {
-   posts: PostType[]
-   postText: string
-   updateNewPostText: (text: string) => void
-   addPost: () => void
-}
-
-export const CreatePost: FC<Props> = (props) => {
+export const CreatePost: FC<PropsType> = (props) => {
    const {posts, postText, addPost, updateNewPostText} = props;
 
    const postsJSX: JSX.Element[] = posts && posts

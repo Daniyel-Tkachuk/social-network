@@ -1,8 +1,7 @@
 import React, {FC} from "react";
 import s from './DialogItem.module.css';
 import {NavLink} from "react-router-dom";
-import {DialogsType} from "../../../../../store/_OOP_store";
-
+import {DialogsType} from "../../../../../store/reducers/dialogsReducer";
 
 
 type Props = {

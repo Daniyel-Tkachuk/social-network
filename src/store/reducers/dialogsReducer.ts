@@ -39,7 +39,7 @@ export const dialogsReducer = (state: StateType = initialState, action: any): St
    }
 }
 
-type StateType = {
+export type StateType = {
    dialogs: DialogsType[]
    messages: MessagesType[]
    messageText: string
