@@ -5,8 +5,6 @@ import {connect} from "react-redux";
 import {Dispatch} from "redux";
 import {PostType} from "../../../store/reducers/profileReducer";
 
-
-
 type MapStateToPropsType = {
    posts: PostType[]
    postText: string
