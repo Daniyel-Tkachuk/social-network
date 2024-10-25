@@ -12,6 +12,7 @@ export const Profile: FC<Props> = (props) => {
       <div className={s.profile}>
          <ProfileInfo/>
          <CreatePostContainer />
+
       </div>
    );
 };
