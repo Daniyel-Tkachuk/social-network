@@ -1,4 +1,5 @@
 import {v1} from "uuid";
+import {AddPostAT, ChangePostTextAT} from "../actions/profileActions";
 
 const initialState: StateType = {
    posts: [
@@ -10,9 +11,9 @@ const initialState: StateType = {
    postText: "",
 }
 
-export const profileReducer = (state: StateType = initialState, action: any): StateType => {
+export const profileReducer = (state: StateType = initialState, action: ActionsType): StateType => {
    switch (action.type) {
-      case ProfileActionType.ADD_POST: {
+      case ProfileConstType.ADD_POST: {
          const newPost: PostType = {
             id: v1(),
             postMessage: state.postText,
@@ -22,7 +23,7 @@ export const profileReducer = (state: StateType = initialState, action: any): St
          state.postText = "";
          return state
       }
-      case ProfileActionType.CHANGE_POST_TEXT: {
+      case ProfileConstType.CHANGE_POST_TEXT: {
          state.postText = action.text;
          return state
       }
@@ -32,10 +33,12 @@ export const profileReducer = (state: StateType = initialState, action: any): St
    }
 }
 
-export enum ProfileActionType {
-   ADD_POST = "ADD-POST",
-   CHANGE_POST_TEXT = "CHANGE-POST-TEXT"
-}
+export const ProfileConstType = {
+   ADD_POST: "profile/ADD-POST",
+   CHANGE_POST_TEXT: "profile/CHANGE-POST-TEXT"
+} as const
+
+type ActionsType = AddPostAT | ChangePostTextAT;
 
 export type StateType = {
    posts: PostType[]

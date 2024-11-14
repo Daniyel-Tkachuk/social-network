@@ -1,15 +1,15 @@
-import {ProfileActionType} from "../reducers/profileReducer";
+import {ProfileConstType} from "../reducers/profileReducer";
 
 
 export const addPostAC = () => {
    return {
-      type: ProfileActionType.ADD_POST,
+      type: ProfileConstType.ADD_POST,
    } as const
 };
 
 export const changePostTextAC = (text: string) => {
    return {
-      type: ProfileActionType.CHANGE_POST_TEXT,
+      type: ProfileConstType.CHANGE_POST_TEXT,
       text,
    } as const;
 }
