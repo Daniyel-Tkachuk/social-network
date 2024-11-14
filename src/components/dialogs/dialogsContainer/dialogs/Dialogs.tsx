@@ -12,17 +12,8 @@ export const Dialogs: FC<PropsType> = (props) => {
       sendMessage,
    } = props;
 
-   const dialogsJSX: JSX.Element[] = dialogs
-      && dialogs
-         .map(el =>
-            <DialogItem key={`${el.id}_${el.name}`} dialog={el}/>
-         );
-
-   const messagesJSX: JSX.Element[] = messages
-      && messages
-         .map(el =>
-            <MessageItem key={`${el.id}`} message={el}/>
-         );
+   const dialogsJSX: JSX.Element[] = dialogs.map(el => <DialogItem key={`${el.id}_${el.name}`} dialog={el}/>);
+   const messagesJSX: JSX.Element[] =  messages.map(el => <MessageItem key={`${el.id}`} message={el}/>);
 
    const onSendMessageHandler = () => {
       sendMessage();

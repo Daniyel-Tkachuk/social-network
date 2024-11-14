@@ -1,16 +1,16 @@
-import {DialogsActionType} from "../reducers/dialogsReducer";
+import {DialogsConstType} from "../reducers/dialogsReducer";
 
 
 export const changeMessageTextAC = (messageText: string) => {
    return {
-      type: DialogsActionType.CHANGE_MESSAGE_TEXT,
+      type: DialogsConstType.CHANGE_MESSAGE_TEXT,
       messageText
    } as const;
 }
 
 export const sendNewMessageAC = () => {
    return {
-      type: DialogsActionType.SEND_NEW_MESSAGE,
+      type: DialogsConstType.SEND_NEW_MESSAGE,
    } as const
 }
 

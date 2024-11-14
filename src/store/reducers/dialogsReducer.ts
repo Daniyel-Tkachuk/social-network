@@ -1,9 +1,10 @@
 import {v1} from "uuid";
+import {ChangeMessageTextAT, SendNewMessageAT} from "../actions/dialogsActions";
 
-export enum DialogsActionType {
-   CHANGE_MESSAGE_TEXT = "CHANGE_MESSAGE_TEXT",
-   SEND_NEW_MESSAGE = "SEND_NEW_MESSAGE"
-}
+export const DialogsConstType = {
+   CHANGE_MESSAGE_TEXT: "CHANGE_MESSAGE_TEXT",
+   SEND_NEW_MESSAGE: "SEND_NEW_MESSAGE"
+} as const;
 
 const initialState: StateType = {
    dialogs: [
@@ -21,23 +22,28 @@ const initialState: StateType = {
    messageText: "",
 }
 
-export const dialogsReducer = (state: StateType = initialState, action: any): StateType => {
+export const dialogsReducer = (state: StateType = initialState, action: ActionsType): StateType => {
    switch (action.type) {
-      case DialogsActionType.SEND_NEW_MESSAGE: {
-         const newMessageBody = state.messageText;
-         state.messageText = "";
-         state.messages.push({id: v1(), message: newMessageBody});
-         return state
+      case DialogsConstType.SEND_NEW_MESSAGE: {
+         return {
+            ...state,
+            messages: [{id: v1(), message: state.messageText}, ...state.messages],
+            messageText: ""
+         }
       }
-      case DialogsActionType.CHANGE_MESSAGE_TEXT: {
-         state.messageText = action.messageText;
-         return state
+      case DialogsConstType.CHANGE_MESSAGE_TEXT: {
+         return {
+            ...state,
+            messageText: action.messageText
+         }
       }
       default: {
          return state
       }
    }
 }
+
+type ActionsType = ChangeMessageTextAT | SendNewMessageAT;
 
 export type StateType = {
    dialogs: DialogsType[]

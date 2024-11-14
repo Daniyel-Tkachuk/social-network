@@ -21,7 +21,8 @@ export const profileReducer = (state: StateType = initialState, action: ActionsT
          };
          return {
             ...state,
-            posts: [newPost, ...state.posts]
+            posts: [newPost, ...state.posts],
+            postText: ""
          }
       }
       case ProfileConstType.CHANGE_POST_TEXT: {
