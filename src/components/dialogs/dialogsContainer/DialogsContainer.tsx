@@ -1,5 +1,4 @@
 import {changeMessageTextAC, sendNewMessageAC} from "../../../store/actions/dialogsActions";
-
 import {AppStateType} from "../../../store/store";
 import {StateType} from "../../../store/reducers/dialogsReducer";
 import {Dispatch} from "redux";
@@ -23,18 +22,18 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => {
 }
 const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToPropsType => {
    return {
-     sendMessage: () => {
-        dispatch(sendNewMessageAC())
-     },
+      sendMessage: () => {
+         dispatch(sendNewMessageAC())
+      },
       changeMessageText: (text: string) => {
-        dispatch(changeMessageTextAC(text))
+         dispatch(changeMessageTextAC(text))
       }
    }
 }
 
 export type PropsType = MapStateToPropsType & MapDispatchToPropsType;
 
-export const Container = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
+export const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 
 

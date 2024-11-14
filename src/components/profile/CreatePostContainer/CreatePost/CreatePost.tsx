@@ -6,13 +6,7 @@ import {PropsType} from "../CreatePostContainer";
 export const CreatePost: FC<PropsType> = (props) => {
    const {posts, postText, addPost, updateNewPostText} = props;
 
-   const postsJSX: JSX.Element[] = posts && posts
-      .map(el => {
-         return <Post
-            key={el.id}
-            post={el}
-         />
-      });
+   const postsJSX: JSX.Element[] = posts.map(el => <Post key={el.id} post={el}/>);
 
    const onAddPostHandler = () => {
       addPost();

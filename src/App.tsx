@@ -4,7 +4,7 @@ import {Route, Routes, Navigate} from 'react-router-dom';
 import {Header} from "./components/header/Header";
 import {Navbar} from "./components/navbar/Navbar";
 import {Profile} from "./components/profile/Profile";
-import {Container} from "./components/dialogs/dialogsContainer/DialogsContainer";
+import {DialogsContainer} from "./components/dialogs/dialogsContainer/DialogsContainer";
 
 
 type Props = {}
@@ -22,7 +22,7 @@ export const App: FC<Props> = () => {
 
                <Route path="/profile" element={<Profile />
                }/>
-               <Route path="/dialogs" element={<Container/>}/>
+               <Route path="/dialogs" element={<DialogsContainer/>}/>
             </Routes>
          </div>
       </div>
