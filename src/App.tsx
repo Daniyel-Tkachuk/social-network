@@ -14,7 +14,9 @@ export const App: FC<Props> = () => {
 
    return (
       <div className="app-wrapper">
-          <div></div>
+          <div>
+
+          </div>
          <Header/>
          <Navbar/>
          <div className={"app-wrapper_content"}>
